@@ -1,0 +1,39 @@
+{
+  "name": "test-server",
+  "version": "0.0.1",
+  "description": "Easy testing of a HTTP server",
+  "keywords": [],
+  "author": "Raynos <raynos2@gmail.com>",
+  "repository": "git://github.com/Raynos/test-server.git",
+  "main": "index",
+  "homepage": "https://github.com/Raynos/test-server",
+  "contributors": [
+    {
+      "name": "Jake Verbaten"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/Raynos/test-server/issues",
+    "email": "raynos2@gmail.com"
+  },
+  "dependencies": {
+    "request": "~2.9.203",
+    "xtend": "~1.0.3",
+    "ap": "~0.1.0"
+  },
+  "devDependencies": {
+    "testling": "git://github.com/Raynos/testling#master",
+    "testem": "git://github.com/Raynos/testem#master",
+    "sinon": "git://github.com/Raynos/Sinon.JS.git",
+    "tap": "0.2.5"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/Raynos/test-server/raw/master/LICENSE"
+    }
+  ],
+  "scripts": {
+    "test": "make node-test"
+  }
+}
