@@ -25,6 +25,8 @@ function testServer(handleRequest, options, callback) {
     server.listen(options.port,
         partial(callback, requestProxy, serverKiller))
 
+    return server
+
     function requestProxy(uri, callback) {
         if (typeof uri === "string") {
             uri = options.protocol + "://" + options.host + ":" +
