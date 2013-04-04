@@ -1,13 +1,14 @@
 var http = require("http")
-    , request = require("request")
-    , extend = require("xtend")
-    , partial = require("ap").partial
-    , defaults = {
-        port: 3002
-        , timeout: 5000
-        , protocol: "http"
-        , host: "localhost"
-    }
+var setTimeout = require("timers").setTimeout
+var clearTimeout = require("timers").clearTimeout
+var request = require("request")
+var extend = require("xtend")
+var defaults = {
+    port: 3002
+    , timeout: 5000
+    , protocol: "http"
+    , host: "localhost"
+}
 
 module.exports = testServer
 
@@ -20,10 +21,13 @@ function testServer(handleRequest, options, callback) {
     options = extend(defaults, options)
 
     var server = http.createServer(handleRequest)
-        , timer = setTimeout(serverKiller, options.timeout)
+    var timer = setTimeout(serverKiller, options.timeout)
 
-    server.listen(options.port,
-        partial(callback, requestProxy, serverKiller))
+    extend(requestProxy, request)
+
+    server.listen(options.port, function () {
+        callback(requestProxy, serverKiller)
+    })
 
     return server
 
